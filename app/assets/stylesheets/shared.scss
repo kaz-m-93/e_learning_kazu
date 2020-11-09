@@ -1,0 +1,42 @@
+@import "bootstrap";
+
+.color-white {
+	color: white;
+}
+
+// body
+body {
+	background-image: image-url('home_image.jpg');
+	background-size: cover;
+	width: 100%;
+
+	// header
+	header {
+		background-color: black;
+
+		.nav-link {
+			color: white;
+			padding: 0 10px;
+		}
+
+		.nav-link:hover {
+			font-weight: bold;
+			text-decoration: underline;
+		}
+	}
+
+	// footer
+	footer {
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			height: auto;
+			background-color: black;
+			text-align: right;
+			color: white;
+
+			small {
+				margin-right: 20px;
+			}
+		}
+}
