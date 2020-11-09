@@ -1,7 +1,10 @@
 @import "bootstrap";
 
 .signup-form {
-    width: 800px;
-    // padding: 20px 0 30px 30px;
+    width: 400px;
     margin: 100px auto;
+
+    .btn {
+        margin-top: 20px;
+    }
 }
