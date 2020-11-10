@@ -41,6 +41,19 @@ body {
 		}
 	}
 	
+	// static page form
+	.static-page-form {
+		width: 400px;
+		margin: auto;
+	
+		h1 {
+			text-align: center;
+		}
+	
+		.btn {
+			margin-top: 10px;
+		}
+	}
 
 	// footer
 	footer {
