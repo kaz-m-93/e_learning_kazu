@@ -4,11 +4,14 @@
 	color: white;
 }
 
-// body
-body {
+.static_pages {
 	background-image: image-url('home_image.jpg');
 	background-size: cover;
 	width: 100%;
+}
+
+// body
+body {
 
 	// header
 	header {
@@ -25,18 +28,32 @@ body {
 		}
 	}
 
+	// error-message
+	.error {
+		.alert {
+			text-align: center;
+		}
+
+		li {
+			color: red;
+			font-size: small;
+			padding: 0;
+		}
+	}
+	
+
 	// footer
 	footer {
-			position: absolute;
-			bottom: 0;
-			width: 100%;
-			height: auto;
-			background-color: black;
-			text-align: right;
-			color: white;
+		bottom: 0;
+		position: fixed;
+		width: 100%;
+		height: auto;
+		background-color: black;
+		text-align: right;
+		color: white;
 
-			small {
-				margin-right: 20px;
-			}
+		small {
+			margin-right: 20px;
 		}
+	}
 }
