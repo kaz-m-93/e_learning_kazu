@@ -10,7 +10,7 @@
         <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     </head>
 
-    <% @staticpages_path = [root_path, signup_path, login_path] %>
+    <% @staticpages_path = [root_path, signup_path] %>
     <body class="<%= "static_pages" if @staticpages_path.include?(request.path) %>">
         <%= render 'layouts/header' %>
         <% if flash.any? %>
