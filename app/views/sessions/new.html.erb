@@ -1,6 +1,6 @@
 <% provide(:title, "login") %>
 <div class="static-page-form">
-    <%= form_for(@user, url: signup_path) do |f| %>
+    <%= form_for(:session, url: sessions_path) do |f| %>
         <h1>Log in</h1>
         <%= render 'layouts/error', object: @user %>
         <div class="form-group">
