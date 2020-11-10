@@ -10,8 +10,16 @@
         <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     </head>
 
-    <body>
-        <%= render 'layouts/header' %> 
+    <% @staticpages_path = [root_path, signup_path] %>
+    <body class="<%= "static_pages" if @staticpages_path.include?(request.path) %>">
+        <%= render 'layouts/header' %>
+        <% if flash.any? %>
+            <% if flash[:info] != nil %>
+                <div class="alert alert-success" role="alert">
+                    <%= flash[:info] %>
+                </div>
+            <% end %>
+        <% end %>
         <%= yield %>
         <%= render 'layouts/footer' %>
     </body>

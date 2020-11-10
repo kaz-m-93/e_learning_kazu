@@ -41,6 +41,7 @@ gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 gem 'yaml_db'
 gem 'mysql2', '>= 0.4.4', '< 0.6.0'
+gem 'bcrypt'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

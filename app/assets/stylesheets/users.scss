@@ -2,9 +2,13 @@
 
 .signup-form {
     width: 400px;
-    margin: 100px auto;
+    margin: auto;
+
+    h1 {
+        text-align: center;
+    }
 
     .btn {
-        margin-top: 20px;
+        margin-top: 10px;
     }
 }

@@ -1,4 +1,6 @@
-<%= form_for(@user) do |f| %>
+<%= form_for(@user, url: signup_path) do |f| %>
+    <h1>Sign up</h1>
+    <%= render 'layouts/error', object: @user %>
     <div class="form-group">
         <label for="inputEmail4">Email</label>
         <div><%= f.email_field :email, class: "form-control" %></div>
