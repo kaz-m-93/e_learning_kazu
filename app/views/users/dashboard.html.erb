@@ -1,1 +1,22 @@
 <% provide(:title, "dashboard") %>
+<div class="dashboard-wrapper">
+    <div class="container">
+        <div class="left-side">
+            <div class="user" style="max-width: 18rem;">
+                <%= image_tag get_userimage(login_user) %>
+                <div class="info">
+                    <h2 class="name"><%= login_user.name || "no name" %></h2>
+                    <p class="email"><%= login_user.email %></p>
+                </div>
+                <p>xx words learned</p>
+            </div>
+        </div>
+        <div class="right-side">
+            <div class="activity">
+                <h2>activities</h2>
+                <div class="item">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
