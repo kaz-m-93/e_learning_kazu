@@ -6,9 +6,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:info] = "your account has been created"
-      # redirect_to user_path @user
-      redirect_to root_path # instead of dashboard
+      flash[:success] = "your account has been created"
+      redirect_to root_path
     else
       render 'new'
     end
