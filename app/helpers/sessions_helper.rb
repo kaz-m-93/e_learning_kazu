@@ -6,4 +6,8 @@ module SessionsHelper
   def login_user
     return User.find(session[:user_id]) unless session[:user_id].nil? 
   end
+
+  def login_user?
+    return session[:user_id] == params[:id].to_i
+  end
 end

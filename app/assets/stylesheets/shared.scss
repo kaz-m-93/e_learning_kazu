@@ -16,6 +16,12 @@
 	background-size: cover;
 }
 
+.clearfix:after{
+	content: "";
+	clear: both;
+	display: block;
+}
+
 // body
 body {
 	width: 100%;
