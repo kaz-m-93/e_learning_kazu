@@ -1,1 +1,45 @@
 @import "bootstrap";
+
+.container {
+  width: 80%;
+  margin: auto;
+  margin-top: 30px;
+  padding: 20px 0;
+  height: 70vh;
+  background-color: lightgray;
+  border: 1px solid;
+  border-radius: 5px;
+  overflow: hidden;
+  opacity: 0.95;
+
+  .left-side {
+    float: left;
+    width: 30%;
+
+    .user {
+      text-align: center;
+      margin: auto;
+
+      img {
+        width: 100px
+      }
+
+      .email {
+        line-height: 0.3;
+      }
+    }
+  }
+
+  .right-side {
+    float: right;
+    width: 70%;
+
+    .activity {
+      width: 90%;
+    }
+
+    h2 {
+      text-decoration: underline;
+    }
+  }
+}

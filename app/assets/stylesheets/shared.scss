@@ -1,17 +1,24 @@
 @import "bootstrap";
 
-.color-white {
-	color: white;
+.wrapper {
+	position: relative;
+	width: 100%;
+	min-height: 100vh;
 }
 
 .static_pages {
 	background-image: image-url('home_image.jpg');
 	background-size: cover;
-	width: 100%;
+}
+
+.active_pages {
+	background-image: image-url('active_page_image.jpg');
+	background-size: cover;
 }
 
 // body
 body {
+	width: 100%;
 
 	// header
 	header {
@@ -32,6 +39,7 @@ body {
 	.error {
 		.alert {
 			text-align: center;
+			margin: 0;
 		}
 
 		li {
@@ -58,15 +66,17 @@ body {
 	// footer
 	footer {
 		bottom: 0;
-		position: fixed;
+		position: absolute;
 		width: 100%;
-		height: auto;
+		height: 24px;
 		background-color: black;
 		text-align: right;
 		color: white;
 
 		small {
 			margin-right: 20px;
+			display: block;
+			line-height: 24px;
 		}
 	}
 }
