@@ -11,16 +11,12 @@
     </head>
 
     <% @staticpages_path = [root_path, signup_path, login_path] %>
-    <body class="<%= "static_pages" if @staticpages_path.include?(request.path) %>">
-        <%= render 'layouts/header' %>
-        <% if flash.any? %>
-            <% if flash[:info] != nil %>
-                <div class="alert alert-success" role="alert">
-                    <%= flash[:info] %>
-                </div>
-            <% end %>
-        <% end %>
-        <%= yield %>
-        <%= render 'layouts/footer' %>
+    <body class="<%= @staticpages_path.include?(request.path) && login_user.nil? ? "static_pages" : "active_pages" %>">
+        <div class="wrapper">
+            <%= render 'layouts/header' %>
+            <%= render 'layouts/alert' %>
+            <%= yield %>
+            <%= render 'layouts/footer' %>
+        </div>
     </body>
 </html>
