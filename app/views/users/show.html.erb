@@ -1,0 +1,37 @@
+<% provide(:title, "profile") %>
+<div class="profile-wrapper">
+    <div class="container clearfix">
+        <div class="left-side">
+            <div class="user" style="max-width: 18rem;">
+                <%= image_tag get_userimage(@user) %>
+                <div class="info">
+                    <h2 class="name"><%= @user.name || "no name" %></h2>
+                    <p class="email"><%= @user.email %></p>
+                </div>
+                <p>xx words learned</p>
+                <div class="follow-form">
+                    <div class="follow">
+                        follow
+                        <p>xx</p>
+                    </div>
+                    <div class="follower">
+                        follower
+                        <p>xx</p>
+                    </div>
+                </div>
+                <% if login_user? %>
+                    <div class="btn"><span>settings</span></div>
+                <% else %>
+                    <div class="btn"><span>follow</span></div>
+                <% end %>
+            </div>
+        </div>
+        <div class="right-side">
+            <div class="activity">
+                <h2><%= "#{@user.name}'s " if @user.name %>activities</h2>
+                <div class="item">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

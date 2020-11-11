@@ -9,7 +9,6 @@
   background-color: lightgray;
   border: 1px solid;
   border-radius: 5px;
-  overflow: hidden;
   opacity: 0.95;
 
   .left-side {
@@ -26,6 +25,37 @@
 
       .email {
         line-height: 0.3;
+      }
+
+      .follow-form {
+        width: 130px;
+        margin: 0 auto;
+
+        .follow, .follower {
+          width: 65px;
+        }
+
+        div {
+          float: left;
+        }
+      }
+
+      .btn {
+        padding-top: 10px;
+
+        span {
+          font-size: smaller;
+          padding: 5px 10px;
+          background-color: lightblue;
+          border-radius: 5px;
+          cursor: pointer;
+          box-shadow: 1px 1px;
+          opacity: 0.8;
+        }
+
+        span:hover {
+          opacity: 1;
+        }
       }
     }
   }
