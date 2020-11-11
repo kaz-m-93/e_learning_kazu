@@ -7,14 +7,15 @@ class SessionsController < ApplicationController
     if !@user.nil? && @user.authenticate(params[:session][:password])
       log_in @user
       flash[:success] = "you logged in now!"
-      redirect_to sessions_path
+      redirect_to '/dashboard'
     else
-      flash[:danger] = "please check your email or password"
+      flash.now[:danger] = "please check your email or password"
       render 'new'
     end
   end
 
-  def index
-    @user = login_user
+  def destroy
+    session[:user_id] = nil
+    redirect_to root_path
   end
 end

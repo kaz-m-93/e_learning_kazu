@@ -11,7 +11,7 @@
     </head>
 
     <% @staticpages_path = [root_path, signup_path, login_path] %>
-    <body class="<%= @staticpages_path.include?(request.path) ? "static_pages" : "active_pages" %>">
+    <body class="<%= @staticpages_path.include?(request.path) && login_user.nil? ? "static_pages" : "active_pages" %>">
         <div class="wrapper">
             <%= render 'layouts/header' %>
             <%= render 'layouts/alert' %>
