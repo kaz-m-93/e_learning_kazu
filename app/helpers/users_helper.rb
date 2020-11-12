@@ -1,7 +1,7 @@
 module UsersHelper
   def get_userimage(user)
     default_picture = "user/default_picture.png"
-    return user.picture.nil? || !File.exist?("app/assets/images/user/#{user.picture}") ? 
-      default_picture : "user/#{user.picture}"
+    # To-Do:need function about save and display user image
+    return default_picture
   end
 end
