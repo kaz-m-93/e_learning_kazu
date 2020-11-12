@@ -1,11 +1,11 @@
 @import "bootstrap";
 
-.container {
+.user-container {
   width: 80%;
   margin: auto;
   margin-top: 30px;
   padding: 20px 0;
-  height: 70vh;
+  min-height: 70vh;
   background-color: lightgray;
   border: 1px solid;
   border-radius: 5px;
@@ -39,24 +39,6 @@
           float: left;
         }
       }
-
-      .btn {
-        padding-top: 10px;
-
-        span {
-          font-size: smaller;
-          padding: 5px 10px;
-          background-color: lightblue;
-          border-radius: 5px;
-          cursor: pointer;
-          box-shadow: 1px 1px;
-          opacity: 0.8;
-        }
-
-        span:hover {
-          opacity: 1;
-        }
-      }
     }
   }
 
@@ -68,8 +50,46 @@
       width: 90%;
     }
 
+    .update-info {
+      width: 70%;
+    }
+
     h2 {
       text-decoration: underline;
+    }
+  }
+
+  .update-info {
+    width: 50%;
+    margin: 0 auto;
+
+    .form-control-file {
+      font-size: 14px;
+    }
+  }
+
+  .btn {
+    padding: 10px 0 0 0;
+  
+    a, span {
+      color: black;
+      font-size: smaller;
+      padding: 5px 10px;
+      background-color: lightblue;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 1px 1px;
+      opacity: 0.8;
+      text-decoration: none;
+    }
+  
+    a:hover, span:hover {
+      opacity: 1;
+    }
+  
+    input {
+      background-color: transparent;
+      border: none;
     }
   }
 }

@@ -1,6 +1,6 @@
 <% provide(:title, "profile") %>
 <div class="profile-wrapper">
-    <div class="container clearfix">
+    <div class="user-container clearfix">
         <div class="left-side">
             <div class="user" style="max-width: 18rem;">
                 <%= image_tag get_userimage(@user) %>
@@ -9,7 +9,7 @@
                     <p class="email"><%= @user.email %></p>
                 </div>
                 <p>xx words learned</p>
-                <div class="follow-form">
+                <div class="follow-form clearfix">
                     <div class="follow">
                         follow
                         <p>xx</p>
@@ -20,9 +20,9 @@
                     </div>
                 </div>
                 <% if login_user? %>
-                    <div class="btn"><span>settings</span></div>
+                    <div class="btn"><%= link_to "settings", edit_user_path(@user) %></div>
                 <% else %>
-                    <div class="btn"><span>follow</span></div>
+                <div class="btn"><%= link_to "follow", '#' %></div>
                 <% end %>
             </div>
         </div>
