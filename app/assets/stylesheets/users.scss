@@ -73,7 +73,6 @@
   
     a, span {
       color: black;
-      font-size: smaller;
       padding: 5px 10px;
       background-color: lightblue;
       border-radius: 5px;
@@ -81,6 +80,10 @@
       box-shadow: 1px 1px;
       opacity: 0.8;
       text-decoration: none;
+    }
+
+    a {
+      font-size: smaller;
     }
   
     a:hover, span:hover {
