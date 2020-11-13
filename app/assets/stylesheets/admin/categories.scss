@@ -1,0 +1,52 @@
+@import "bootstrap";
+
+.admin-category-wrapper {
+  .add-btn {
+    width: 70%;
+    margin: 0 auto 10px auto;
+    text-align: right;
+
+    a {
+      background-color: firebrick;
+    }
+  }
+
+  .edit-btn {
+    display: inline;
+    a {
+      background-color: green;
+    }
+  }
+
+  .del-btn {
+    display: inline;
+    a {
+      background-color: blue;
+    }
+  }
+
+  a {
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 1px 1px;
+    opacity: 0.8;
+    text-decoration: none;
+    font-size: smaller;
+  }
+
+  a:hover {
+    opacity: 1;
+  }
+
+  .categories {
+    margin: 0 auto;
+    width: 70%;
+    background-color: floralwhite;
+
+    .category-btn {
+      width: 20%;
+    }
+  }
+}

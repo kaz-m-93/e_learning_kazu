@@ -9,5 +9,8 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'users#dashboard'
   
   resources :users
+  namespace :admin do
+    resources :users, :categories
+  end
   resources :sessions
 end
