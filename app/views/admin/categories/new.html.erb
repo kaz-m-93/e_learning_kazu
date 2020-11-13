@@ -1,0 +1,21 @@
+<% provide(:title, "[admin] new category") %>
+<div class="admin-category-wrapper">
+    <div class="container clearfix">
+        <%= form_for(:category, url: admin_categories_path) do |f| %>
+            <div class="update-info">
+                <%= render 'layouts/error', object: nil %>
+                <div class="content">
+                    <div class="form-group">
+                        <label for="inputTitle">Title</label>
+                        <div><%= f.text_field :title, class: "form-control" %></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputDescription">Description</label>
+                        <div><%= f.text_area :discription, class: "form-control" %></div>
+                    </div>
+                    <div class="add-btn"><span><%= f.submit "add" %></span></div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>
