@@ -10,4 +10,8 @@ module SessionsHelper
   def login_user?
     return session[:user_id] == params[:id].to_i
   end
+
+  def admin_user?(user)
+    return user.is_admin
+  end
 end
