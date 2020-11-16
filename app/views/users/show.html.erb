@@ -20,7 +20,7 @@
                     </div>
                 </div>
                 <% if login_user? %>
-                    <div class="btn"><%= link_to "settings", edit_user_path(@user) %></div>
+                    <div class="btn"><%= link_to "settings", edit_user_url(@user) %></div>
                 <% else %>
                 <div class="btn"><%= link_to "follow", '#' %></div>
                 <% end %>

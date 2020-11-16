@@ -10,8 +10,8 @@
         <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     </head>
 
-    <% @staticpages_path = [root_path, signup_path, login_path] %>
-    <body class="<%= @staticpages_path.include?(request.path) && login_user.nil? ? "static_pages" : "active_pages" %>">
+    <% @staticpages_url = [root_url, signup_url, login_url] %>
+    <body class="<%= @staticpages_url.include?(request.path) && login_user.nil? ? "static_pages" : "active_pages" %>">
         <div class="wrapper">
             <%= render 'layouts/header' %>
             <%= render 'layouts/alert' %>

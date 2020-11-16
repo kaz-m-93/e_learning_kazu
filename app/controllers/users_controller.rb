@@ -9,9 +9,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:success] = "your account has been created"
-      redirect_to root_path
+      redirect_to root_url
     else
-      render 'new'
+      render "new"
     end
   end
 
@@ -32,13 +32,14 @@ class UsersController < ApplicationController
 
     if @user.update_attributes(user_params)
       flash[:success] = "your account has been updated"
-      redirect_to user_path(@user)
+      redirect_to user_url(@user)
     else
-      render 'edit'
+      render "edit"
     end
   end
 
   private
+
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :picture)
   end
@@ -46,7 +47,7 @@ class UsersController < ApplicationController
   def check_login_user
     unless login_user?
       flash[:danger] = "sonmething wrong with your operation"
-      redirect_to root_path
+      redirect_to root_url
     end
   end
 end
