@@ -37,12 +37,13 @@
     padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
-    box-shadow: 1px 1px;
+    box-shadow: 1px 1px black;
     opacity: 0.8;
-    text-decoration: none;
   }
 
-  a:hover {
+  a:hover, span:hover {
+    color: white;
+    text-decoration: none;
     opacity: 1;
   }
 
@@ -58,7 +59,6 @@
 
   .update-info {
     min-height: 65vh;
-    // width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
