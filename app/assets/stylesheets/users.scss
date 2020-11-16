@@ -10,7 +10,7 @@
       margin: auto;
 
       img {
-        height: 100px
+        height: 100px;
       }
 
       .email {
@@ -21,7 +21,8 @@
         width: 130px;
         margin: 0 auto;
 
-        .follow, .follower {
+        .follow,
+        .follower {
           width: 65px;
         }
 
@@ -60,8 +61,9 @@
 
   .btn {
     padding: 10px 0 0 0;
-  
-    a, span {
+
+    a,
+    span {
       color: black;
       padding: 5px 10px;
       background-color: lightblue;
@@ -75,11 +77,12 @@
     a {
       font-size: smaller;
     }
-  
-    a:hover, span:hover {
+
+    a:hover,
+    span:hover {
       opacity: 1;
     }
-  
+
     input {
       background-color: transparent;
       border: none;
