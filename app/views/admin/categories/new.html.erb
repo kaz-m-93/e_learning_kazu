@@ -3,8 +3,8 @@
     <div class="container clearfix">
         <%= form_for([:admin, @category]) do |f| %>
             <div class="update-info">
-                <%= render 'layouts/error', object: nil %>
                 <div class="content">
+                    <%= render 'layouts/error', object: @category %>
                     <div class="form-group">
                         <label for="inputTitle">Title</label>
                         <div><%= f.text_field :title, class: "form-control" %></div>

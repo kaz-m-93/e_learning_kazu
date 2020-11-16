@@ -3,7 +3,7 @@
     <div class="container clearfix">
         <div class="left-side">
             <div class="user" style="max-width: 18rem;">
-                <%= link_to image_tag(get_userimage(login_user)), user_path(login_user) %>
+                <%= link_to image_tag(get_userimage(login_user)), user_url(login_user) %>
                 <div class="info">
                     <h2 class="name"><%= login_user.name || "no name" %></h2>
                     <p class="email"><%= login_user.email %></p>
