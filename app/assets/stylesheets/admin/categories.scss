@@ -1,5 +1,24 @@
 @import "bootstrap";
 
+@mixin btn {
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 1px 1px black;
+  opacity: 0.8;
+}
+
+@mixin btn-hover {
+  color: white;
+  text-decoration: none;
+  opacity: 1;
+}
+
+.back {
+  margin-left: 20px;
+}
+
 .admin-category-wrapper {
   .add-btn-position {
     width: 70%;
@@ -10,12 +29,19 @@
     a,
     span {
       background-color: firebrick;
+      @include btn;
 
       input {
+        color: white;
         text-align: left;
         background-color: transparent;
         border: none;
       }
+    }
+
+    a:hover,
+    span:hover {
+      @include btn-hover();
     }
   }
 
@@ -23,6 +49,12 @@
     display: inline;
     a {
       background-color: green;
+      @include btn;
+    }
+
+    a:hover,
+    span:hover {
+      @include btn-hover();
     }
   }
 
@@ -30,24 +62,12 @@
     display: inline;
     a {
       background-color: blue;
+      @include btn;
     }
-  }
-
-  a,
-  span {
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    box-shadow: 1px 1px black;
-    opacity: 0.8;
-  }
-
-  a:hover,
-  span:hover {
-    color: white;
-    text-decoration: none;
-    opacity: 1;
+    a:hover,
+    span:hover {
+      @include btn-hover();
+    }
   }
 
   .categories {
@@ -70,6 +90,10 @@
       padding: 40px;
       width: 60%;
       background-color: floralwhite;
+
+      .description {
+        min-height: 7em;
+      }
     }
   }
 }
