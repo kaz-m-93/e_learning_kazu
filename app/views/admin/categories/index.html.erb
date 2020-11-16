@@ -1,7 +1,9 @@
-<% provide(:title, "dashboard") %>
+<% provide(:title, "[admin] category list") %>
 <div class="admin-category-wrapper">
     <div class="container clearfix">
-        <div class="add-btn"><%= link_to "add category", "#", class: "add" %></div>
+        <div class="add-btn add-btn-position right font-smaller">
+            <%= link_to "add category", new_admin_category_path, class: "add" %>
+        </div>
         <div class="categories">
             <table class="table">
                 <thead>
@@ -17,7 +19,7 @@
                         <th scope="row">1</th>
                         <td>xx</td>
                         <td>xx</td>
-                        <td class="category-btn">
+                        <td class="category-btn font-smaller">
                             <div class="edit-btn"><%= link_to "edit", "#", class: "edit" %></div>
                             <div class="del-btn"><%= link_to "del", "#", class: "del" %></div>
                         </td>
@@ -26,7 +28,7 @@
                         <th scope="row">2</th>
                         <td>yy</td>
                         <td>yy</td>
-                        <td class="category-btn">
+                        <td class="category-btn font-smaller">
                             <div class="edit-btn"><%= link_to "edit", "#", class: "edit" %></div>
                             <div class="del-btn"><%= link_to "del", "#", class: "del" %></div>
                         </td>
@@ -35,5 +37,4 @@
             </table>
         </div>
     </div>
-    
 </div>

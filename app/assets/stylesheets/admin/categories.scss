@@ -1,13 +1,21 @@
 @import "bootstrap";
 
 .admin-category-wrapper {
-  .add-btn {
+  .add-btn-position {
     width: 70%;
     margin: 0 auto 10px auto;
-    text-align: right;
+  }
 
-    a {
+  .add-btn {
+    a,
+    span {
       background-color: firebrick;
+
+      input {
+        text-align: left;
+        background-color: transparent;
+        border: none;
+      }
     }
   }
 
@@ -25,18 +33,20 @@
     }
   }
 
-  a {
+  a,
+  span {
     color: white;
     padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
-    box-shadow: 1px 1px;
+    box-shadow: 1px 1px black;
     opacity: 0.8;
-    text-decoration: none;
-    font-size: smaller;
   }
 
-  a:hover {
+  a:hover,
+  span:hover {
+    color: white;
+    text-decoration: none;
     opacity: 1;
   }
 
@@ -47,6 +57,19 @@
 
     .category-btn {
       width: 20%;
+    }
+  }
+
+  .update-info {
+    min-height: 65vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .content {
+      padding: 40px;
+      width: 60%;
+      background-color: floralwhite;
     }
   }
 }
