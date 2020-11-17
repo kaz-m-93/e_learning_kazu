@@ -82,6 +82,8 @@
     margin: 0 auto;
     width: 70%;
     background-color: floralwhite;
+    max-height: 60vh;
+    overflow-y: scroll;
 
     .category-btn,
     .word-btn {

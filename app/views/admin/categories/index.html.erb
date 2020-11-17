@@ -15,24 +15,19 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>xx</td>
-                        <td>xx</td>
-                        <td class="category-btn font-smaller">
-                            <div class="edit-btn inline"><%= link_to "edit", edit_admin_category_url(1), class: "edit" %></div>
-                            <div class="del-btn inline"><%= link_to "del", "#", class: "del" %></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>yy</td>
-                        <td>yy</td>
-                        <td class="category-btn font-smaller">
-                            <div class="edit-btn inline"><%= link_to "edit", "#", class: "edit" %></div>
-                            <div class="del-btn inline"><%= link_to "del", "#", class: "del" %></div>
-                        </td>
-                    </tr>
+                    <% index = 1 %>
+                    <% @categories.each do |category| %>
+                        <tr>
+                            <th scope="row"><%= index %></th>
+                            <% index += 1 %>
+                            <td><%= category.title %></td>
+                            <td><%= category.description %></td>
+                            <td class="category-btn font-smaller">
+                                <div class="edit-btn inline"><%= link_to "edit", edit_admin_category_url(category), class: "edit" %></div>
+                                <div class="del-btn inline"><%= link_to "del", admin_category_url(category), method: :delete, class: "del" %></div>
+                            </td>
+                        </tr>
+                    <% end %>
                 </tbody>
             </table>
         </div>
