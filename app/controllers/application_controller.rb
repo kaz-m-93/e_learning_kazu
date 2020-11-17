@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   def check_admin_user
     user = login_user
     unless admin_user?(user)
-      flash[:danger] = "please log in with admin user"
+      flash[:danger] = "please log in as admin user"
       redirect root_url
     end
   end
