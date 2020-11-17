@@ -1,0 +1,29 @@
+@import "bootstrap";
+
+.admin-category-wrapper {
+  .word {
+    width: 80%;
+  }
+
+  .choice {
+    border-top: 1px solid lightgray;
+    padding-top: 10px;
+
+    p {
+      margin: 0;
+    }
+
+    .choice-form {
+      display: flex;
+      
+      .choice-text {
+        width: 60%;
+      }
+      .choice-radio {
+        text-align: center;
+        font-size: 1.4em;
+        width: 10%;
+      }
+    }
+  }
+}

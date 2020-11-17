@@ -1,17 +1,19 @@
 <% provide(:title, "[admin] new category") %>
 <div class="admin-category-wrapper">
     <div class="container clearfix">
+        <%= link_to "←back", :back, class: "back" %>
         <%= form_for([:admin, @category]) do |f| %>
             <div class="update-info">
                 <div class="content">
                     <%= render 'layouts/error', object: @category %>
+                    <small class="form-group form-text text-muted">please input the title and description</small>
                     <div class="form-group">
                         <label for="inputTitle">Title</label>
                         <div><%= f.text_field :title, class: "form-control" %></div>
                     </div>
                     <div class="form-group">
                         <label for="inputDescription">Description</label>
-                        <div><%= f.text_area :description, class: "form-control" %></div>
+                        <div><%= f.text_area :description, class: "form-control description" %></div>
                     </div>
                     <div class="add-btn"><span><%= f.submit "add" %></span></div>
                 </div>
