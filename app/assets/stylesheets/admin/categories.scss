@@ -70,12 +70,12 @@
     }
   }
 
-  .categories {
+  .categories, .words {
     margin: 0 auto;
     width: 70%;
     background-color: floralwhite;
 
-    .category-btn {
+    .category-btn, .word-btn {
       width: 20%;
     }
   }

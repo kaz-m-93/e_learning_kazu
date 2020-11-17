@@ -1,16 +1,17 @@
-<% provide(:title, "[admin] category list") %>
+<% provide(:title, "[admin] edit category") %>
 <div class="admin-category-wrapper">
     <div class="container clearfix">
+        <%= link_to "←back", :back, class: "back" %>
         <div class="add-btn add-btn-position right font-smaller">
-            <%= link_to "add category", new_admin_category_url, class: "add" %>
+            <%= link_to "add word", new_admin_category_word_url(1), class: "add" %>
         </div>
-        <div class="categories">
+        <div class="words">
             <table class="table">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Title</th>
-                        <th scope="col">Description</th>
+                        <th scope="col">Word</th>
+                        <th scope="col">Choice</th>
                         <th scope="col"></th>
                     </tr>
                 </thead>
@@ -18,16 +19,22 @@
                     <tr>
                         <th scope="row">1</th>
                         <td>xx</td>
-                        <td>xx</td>
-                        <td class="category-btn font-smaller">
-                            <div class="edit-btn"><%= link_to "edit", edit_admin_category_url(1), class: "edit" %></div>
+                        <td class="choice">
+                            <p>aa</p>
+                            <p>bb</p>
+                        </td>
+                        <td class="word-btn font-smaller">
+                            <div class="edit-btn"><%= link_to "edit", "#", class: "edit" %></div>
                             <div class="del-btn"><%= link_to "del", "#", class: "del" %></div>
                         </td>
                     </tr>
                     <tr>
                         <th scope="row">2</th>
                         <td>yy</td>
-                        <td>yy</td>
+                        <td class="choice">
+                            <p>cc</p>
+                            <p>dd</p>
+                        </td>
                         <td class="category-btn font-smaller">
                             <div class="edit-btn"><%= link_to "edit", "#", class: "edit" %></div>
                             <div class="del-btn"><%= link_to "del", "#", class: "del" %></div>
