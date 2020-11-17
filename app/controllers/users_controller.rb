@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :check_logged_in, only: [:dashboard, :show, :edit, :update]
   before_action :check_login_user, only: [:edit, :update]
 
   def new
