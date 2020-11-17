@@ -20,10 +20,8 @@
                         <td>xx</td>
                         <td>xx</td>
                         <td class="category-btn font-smaller">
-                            <div class="edit-btn"><%= link_to "edit", "#", class: "edit" %></div>
-                            <div class="del-btn"><%= link_to "del", "#", class: "del" %></div>
-                            <div class="add-btn"><%= link_to "add", new_admin_category_word_url("1"), class: "add" %></div>
-                            <!-- ↑ delete after create edit category layout -->
+                            <div class="edit-btn inline"><%= link_to "edit", edit_admin_category_url(1), class: "edit" %></div>
+                            <div class="del-btn inline"><%= link_to "del", "#", class: "del" %></div>
                         </td>
                     </tr>
                     <tr>
@@ -31,8 +29,8 @@
                         <td>yy</td>
                         <td>yy</td>
                         <td class="category-btn font-smaller">
-                            <div class="edit-btn"><%= link_to "edit", "#", class: "edit" %></div>
-                            <div class="del-btn"><%= link_to "del", "#", class: "del" %></div>
+                            <div class="edit-btn inline"><%= link_to "edit", "#", class: "edit" %></div>
+                            <div class="del-btn inline"><%= link_to "del", "#", class: "del" %></div>
                         </td>
                     </tr>
                 </tbody>
