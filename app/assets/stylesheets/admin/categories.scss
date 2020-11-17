@@ -15,6 +15,13 @@
   opacity: 1;
 }
 
+@mixin input {
+  color: white;
+  text-align: left;
+  background-color: transparent;
+  border: none;
+}
+
 .back {
   margin-left: 20px;
 }
@@ -32,10 +39,7 @@
       @include btn;
 
       input {
-        color: white;
-        text-align: left;
-        background-color: transparent;
-        border: none;
+        @include input;
       }
     }
 
@@ -46,8 +50,8 @@
   }
 
   .edit-btn {
-    display: inline;
-    a {
+    a,
+    span {
       background-color: green;
       @include btn;
     }
@@ -56,10 +60,13 @@
     span:hover {
       @include btn-hover();
     }
+
+    input {
+      @include input;
+    }
   }
 
   .del-btn {
-    display: inline;
     a {
       background-color: blue;
       @include btn;
@@ -70,12 +77,14 @@
     }
   }
 
-  .categories, .words {
+  .categories,
+  .words {
     margin: 0 auto;
     width: 70%;
     background-color: floralwhite;
 
-    .category-btn, .word-btn {
+    .category-btn,
+    .word-btn {
       width: 20%;
     }
   }

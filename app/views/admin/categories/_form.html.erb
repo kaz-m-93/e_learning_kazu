@@ -1,0 +1,25 @@
+<%= form_for([:admin, @category]) do |f| %>
+<div class="update-info">
+    <div class="content">
+        <%= render 'layouts/error', object: @category %>
+        <% if object == "add" %>
+            <small class="form-group form-text text-muted">please input the title and description</small>
+        <% else %>
+            <small class="form-group form-text text-muted">please change the title or description</small>
+        <% end %>
+        <div class="form-group">
+            <label for="inputTitle">Title</label>
+            <div><%= f.text_field :title, class: "form-control" %></div>
+        </div>
+        <div class="form-group">
+            <label for="inputDescription">Description</label>
+            <div><%= f.text_area :description, class: "form-control description" %></div>
+        </div>
+        <% if object == "add" %>
+            <div class="add-btn"><span><%= f.submit "add" %></span></div>
+        <% else %>
+            <div class="edit-btn"><span><%= f.submit "edit" %></span></div>
+        <% end %>
+    </div>
+</div>
+<% end %>
