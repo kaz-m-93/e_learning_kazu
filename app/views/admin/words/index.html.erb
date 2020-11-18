@@ -1,0 +1,41 @@
+<% provide(:title, "[admin] words") %>
+<div class="admin-category-wrapper">
+    <div class="container clearfix">
+        <%= link_to "←back", :back, class: "back" %>
+        <div class="add-btn add-btn-position right font-smaller">
+            <%= link_to "add word", new_admin_category_word_url(@category), class: "add" %>
+        </div>
+        <div class="words">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Word</th>
+                        <th scope="col">Choice</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% index = 1 %>
+                    <% @category.words.each do |word| %>
+                    <tr>
+                        <th scope="row"><%= index %></th>
+                        <% index += 1 %>
+                        <td><%= word.content %></td>
+                        <td class="choice">
+                            <% word.choices.each do |choice| %>
+                            <p style="<%= "color: red;" if choice.is_correct %>"><%= choice.content %></p>
+                            <% end %>
+                        </td>
+                        <td class="word-btn font-smaller">
+                            <div class="edit-btn inline"><%= link_to "edit", "#", class: "edit" %></div>
+                            <div class="del-btn inline"><%= link_to "del", "#", class: "del" %></div>
+                        </td>
+                    </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+        <div class="annotation"><small style="color: red;">※ red choice is correct</small></div>
+    </div>
+</div>

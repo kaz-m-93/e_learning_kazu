@@ -20,7 +20,7 @@
                         <tr>
                             <th scope="row"><%= index %></th>
                             <% index += 1 %>
-                            <td><%= category.title %></td>
+                            <td><%= link_to category.title, admin_category_words_url(category) %></td>
                             <td><%= category.description %></td>
                             <td class="category-btn font-smaller">
                                 <div class="edit-btn inline"><%= link_to "edit", edit_admin_category_url(category), class: "edit" %></div>
