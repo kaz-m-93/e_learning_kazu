@@ -12,8 +12,8 @@
             <%= f.fields_for :choices do |s| %>
                 <div class="form-group choice-form">
                     <%= s.text_field :content, class: "form-control choice-text" %>
-                    <!-- ↓ s.radio_button doesnt work, so its a solution for it -->
-                    <div class="choice-radio"><%= f.radio_button :correct_no, s.index, checked: s.object.is_correct ? true : false %></div>
+                    <!-- ↓ for simple implements, use check box instead of radio button -->
+                    <div class="choice-radio"><%= s.check_box :is_correct, value: true , checked: s.object.is_correct ? true : false %></div>
                 </div>
             <% end %>
         </div>

@@ -16,7 +16,7 @@ class Admin::WordsController < ApplicationController
 
   def create
     @category = Category.find(params[:category_id])
-    @word = set_correct_choice(@category.words.build(word_params), params[:word][:correct_no])
+    @word = @category.words.build(word_params)
 
     if @word.save
       flash[:success] = "the word has been added into #{@category.title}"
@@ -31,7 +31,7 @@ class Admin::WordsController < ApplicationController
   end
 
   def update
-    @word = set_correct_choice(Word.find(params[:id]), params[:word][:correct_no])
+    @word = Word.find(params[:id])
 
     if @word.update_attributes(word_params)
       flash[:success] = "the word has been edited"
@@ -52,17 +52,5 @@ class Admin::WordsController < ApplicationController
 
   def word_params
     params.require(:word).permit(:content, choices_attributes: [:id, :content, :is_correct])
-  end
-
-  def set_correct_choice(word, correct_no)
-    index = 0
-    unless correct_no.nil?
-      while index < word.choices.size
-        word.choices[index].is_correct = correct_no.to_i == index
-        index += 1
-      end
-    end
-
-    return word
   end
 end
