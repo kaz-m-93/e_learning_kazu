@@ -2,10 +2,10 @@
 <div class="admin-category-wrapper">
     <div class="container clearfix">
         <%= link_to "←back", :back, class: "back" %>
-        <%= form_for(:word, url: admin_category_words_path) do |f| %>
+        <%= form_for(@word, url: admin_category_words_path) do |f| %>
             <div class="update-info">
                 <div class="content">
-                    <%= render 'layouts/error', object: nil %>
+                    <%= render 'layouts/error', object: @word %>
                     <div class="form-group word">
                         <label for="inputWord">Word</label>
                         <div><%= f.text_field :content, class: "form-control" %></div>
@@ -13,18 +13,13 @@
                     <div class="choice">
                         <p>Choice</p>
                         <small class="form-group form-text text-muted">please input 3 words and check the correct answer.</small>
-                        <div class="form-group choice-form">
-                            <%= f.text_field 'choice[][:content]', class: "form-control choice-text" %>
-                            <div class="choice-radio"><%= f.radio_button 'choice[][:is_correct]', :true %></div>
-                        </div>
-                        <div class="form-group choice-form">
-                            <%= f.text_field 'choice[][:content]', class: "form-control choice-text" %>
-                            <div class="choice-radio"><%= f.radio_button 'choice[][:is_correct]', :true %></div>
-                        </div>
-                        <div class="form-group choice-form">
-                            <%= f.text_field 'choice[][:content]', class: "form-control choice-text" %>
-                            <div class="choice-radio"><%= f.radio_button 'choice[][:is_correct]', :true %></div>
-                        </div>
+                        <%= f.fields_for :choices do |s| %>
+                            <div class="form-group choice-form">
+                                <%= s.text_field :content, class: "form-control choice-text" %>
+                                <!-- ↓ s.radio_button doesnt work, so its a solution for it -->
+                                <div class="choice-radio"><%= f.radio_button :correct_no, s.index, checked: false %></div>
+                            </div>
+                        <% end %>
                     </div>
                     <div class="add-btn"><span><%= f.submit "add" %></span></div>
                 </div>

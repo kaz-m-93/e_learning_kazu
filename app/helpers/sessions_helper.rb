@@ -4,7 +4,7 @@ module SessionsHelper
   end
 
   def login_user
-    return User.find(session[:user_id]) unless session[:user_id].nil? 
+    return User.find_by(id: session[:user_id]) unless session[:user_id].nil?
   end
 
   def login_user?
