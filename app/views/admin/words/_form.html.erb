@@ -1,4 +1,4 @@
-<%= form_for(@word, url: admin_category_words_path) do |f| %>
+<%= form_for([:admin, :category, @word]) do |f| %>
 <div class="update-info">
     <div class="content">
         <%= render 'layouts/error', object: @word %>
