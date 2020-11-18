@@ -13,7 +13,7 @@
                 <div class="form-group choice-form">
                     <%= s.text_field :content, class: "form-control choice-text" %>
                     <!-- ↓ for simple implements, use check box instead of radio button -->
-                    <div class="choice-radio"><%= s.check_box :is_correct, value: true , checked: s.object.is_correct ? true : false %></div>
+                    <div class="choice-radio"><%= s.check_box :is_correct %></div>
                 </div>
             <% end %>
         </div>
