@@ -13,7 +13,7 @@
                 <div class="form-group choice-form">
                     <%= s.text_field :content, class: "form-control choice-text" %>
                     <!-- ↓ s.radio_button doesnt work, so its a solution for it -->
-                    <div class="choice-radio"><%= f.radio_button :correct_no, s.index, checked: false %></div>
+                    <div class="choice-radio"><%= f.radio_button :correct_no, s.index, checked: s.object.is_correct ? true : false %></div>
                 </div>
             <% end %>
         </div>
