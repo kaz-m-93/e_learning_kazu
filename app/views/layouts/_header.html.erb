@@ -16,11 +16,11 @@
                     </li>
                     <% if admin_user?(login_user) %>
                         <li class="nav-item">
-                            <%= link_to "Category", admin_categories_url, class: "nav-link" %>
+                            <%= link_to "Admin", admin_categories_url, class: "nav-link" %>
                         </li>
                     <% end %>
                     <li class="nav-item">
-                        <%= link_to "Lesson", categories_url, class: "nav-link" %>
+                        <%= link_to "Categories", categories_url, class: "nav-link" %>
                     </li>
                     <li class="nav-item">
                         <%= link_to "Profile", user_url(login_user), class: "nav-link" %>
