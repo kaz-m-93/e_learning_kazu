@@ -1,4 +1,7 @@
 class Admin::WordsController < ApplicationController
+  before_action :check_logged_in
+  before_action :check_admin_user
+
   def index
     @category = Category.find(params[:category_id])
   end
@@ -15,18 +18,9 @@ class Admin::WordsController < ApplicationController
     @category = Category.find(params[:category_id])
     @word = @category.words.build(word_params)
 
-    index = 0
-    unless params[:word][:correct_no].nil?
-      while index < @word.choices.size
-        @word.choices[index].is_correct = params[:word][:correct_no].to_i == index
-        index += 1
-      end
-    end
-
     if @word.save
       flash[:success] = "the word has been added into #{@category.title}"
-      # ↓ after create index of words, replace the path
-      redirect_to admin_categories_url
+      redirect_to admin_category_words_url(@category)
     else
       render "new"
     end
@@ -34,6 +28,24 @@ class Admin::WordsController < ApplicationController
 
   def edit
     @word = Word.find(params[:id])
+  end
+
+  def update
+    @word = Word.find(params[:id])
+
+    if @word.update_attributes(word_params)
+      flash[:success] = "the word has been edited"
+      redirect_to admin_category_words_url(@word.category_id)
+    else
+      render "edit"
+    end
+  end
+
+  def destroy
+    @word = Word.find(params[:id])
+    @word.destroy
+    flash[:success] = "the word has been deleted from #{Category.find(params[:category_id]).title}"
+    redirect_to admin_category_words_url(@word.category_id)
   end
 
   private
