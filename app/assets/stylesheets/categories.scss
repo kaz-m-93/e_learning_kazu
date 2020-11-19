@@ -1,0 +1,55 @@
+@import "bootstrap";
+@import "admin/categories.scss";
+
+.category-wrapper {
+  .lessons {
+    nav {
+      text-align: right;
+      padding-right: 20px;
+      margin-bottom: 18px;
+
+      a {
+        color: darkslategrey;
+      }
+
+      .active {
+        font-weight: bold;
+      }
+    }
+
+    .lessons-content {
+      width: 100%;
+      padding: 0 3%;
+      float: left;
+
+      .lessons-category {
+        margin: 0 3% 4% 3%;
+        padding: 0;
+        float: left;
+
+        h5 {
+          text-align: center;
+          color: white;
+          background-color: cadetblue;
+        }
+    
+        .start-btn {
+          a,
+          span {
+            background-color: cadetblue;
+            @include btn;
+          }
+      
+          a:hover,
+          span:hover {
+            @include btn-hover();
+          }
+      
+          input {
+            @include input;
+          }
+        }
+      }
+    }
+  }
+}

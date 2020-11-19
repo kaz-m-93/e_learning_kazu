@@ -1,0 +1,26 @@
+<% provide(:title, "categories") %>
+<div class="category-wrapper">
+    <div class="container clearfix">
+        <div class="lessons">
+            <nav class="nav justify-content-end">
+                <div class="nav-link active"><%= link_to "all", categories_url %></div>
+                <div class="nav-link"><%= link_to "learned", "#" %></div>
+                <div class="nav-link"><%= link_to "not learned", "#" %></div>
+            </nav>
+            <div class="lessons-content">
+                <% @categories.each do |category| %>
+                <div class="lessons-category" style="width: 18rem;">
+                    <div class="card">
+                        <h5 class="card-header"><%= category.title %></h5>
+                        <div class="card-body">
+                        <p class="card-text"><%= category.description %></p>
+                        <p><small>you can learn <%= category.words.size %> words</small></p>
+                        <div class="start-btn right"><%= link_to "start", "#" %></div>
+                        </div>
+                    </div>
+                </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
