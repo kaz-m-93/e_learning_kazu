@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "categories/index"
   root "pages#home"
   get "/about", to: "pages#about"
   get "/signup", to: "users#new"
@@ -8,7 +9,7 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   get "/dashboard", to: "users#dashboard"
 
-  resources :users
+  resources :users, :categories
   namespace :admin do
     resources :users
     resources :categories do

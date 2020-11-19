@@ -1,6 +1,7 @@
 <% provide(:title, "settings") %>
 <div class="user-wrapper">
     <div class="container clearfix">
+        <%= link_to "←back", :back, class: "back" %>
         <%= form_for(@user) do |f| %>
             <div class="update-info">
                 <%= render 'layouts/error', object: @user %>
