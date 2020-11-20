@@ -15,7 +15,8 @@
                         <div class="card-body">
                         <p class="card-text"><%= category.description %></p>
                         <p><small>you can learn <%= category.words.size %> words</small></p>
-                        <div class="start-btn right"><%= link_to "start", "#" %></div>
+                        <!-- ↓ its temporary url -->
+                        <div class="start-btn right"><%= link_to "start", new_category_answer_url(category) %></div>
                         </div>
                     </div>
                 </div>

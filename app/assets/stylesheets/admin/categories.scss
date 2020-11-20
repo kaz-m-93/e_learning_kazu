@@ -1,26 +1,5 @@
 @import "bootstrap";
-
-@mixin btn {
-  color: white;
-  padding: 5px 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  box-shadow: 1px 1px black;
-  opacity: 0.8;
-}
-
-@mixin btn-hover {
-  color: white;
-  text-decoration: none;
-  opacity: 1;
-}
-
-@mixin input {
-  color: white;
-  text-align: left;
-  background-color: transparent;
-  border: none;
-}
+@import "shared.scss";
 
 .back {
   margin-left: 20px;

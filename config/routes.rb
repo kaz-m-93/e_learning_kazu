@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "answers/new"
   get "categories/index"
   root "pages#home"
   get "/about", to: "pages#about"
@@ -9,7 +10,10 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   get "/dashboard", to: "users#dashboard"
 
-  resources :users, :categories
+  resources :users
+  resources :categories do
+    resources :answers
+  end
   namespace :admin do
     resources :users
     resources :categories do
