@@ -5,8 +5,8 @@ class Category < ApplicationRecord
   validates :description, presence: true
 
   def get_user_lesson(user)
-    if lessons && lesson ||= lessons.select { |lesson| lesson.user_id == user.id }
-      return lesson.any? ? lesson : nil
+    if lessons && lesson ||= lessons.find_by(user_id: user.id)
+      return lesson
     end
   end
 end
