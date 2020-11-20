@@ -15,8 +15,16 @@
                         <div class="card-body">
                         <p class="card-text"><%= category.description %></p>
                         <p><small>you can learn <%= category.words.size %> words</small></p>
-                        <!-- ↓ its temporary url -->
-                        <div class="start-btn right"><%= link_to "start", new_category_answer_url(category) %></div>
+                        <div class="start-btn right">
+                            <% lesson = category.get_user_lesson(login_user) %>
+                            <% if lesson.nil? %>
+                                <%= link_to "start", lessons_url(category_id: category.id), method: :post %>
+                            <% elsif lesson.result == 1 %>
+                                <%= link_to "continue", new_lesson_answer_url(lesson) %>
+                            <% else %>
+                                <%= link_to "result", "#" %>
+                            <% end %>
+                        </div>
                         </div>
                     </div>
                 </div>

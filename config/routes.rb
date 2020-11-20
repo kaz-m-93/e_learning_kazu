@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'lessons/create'
   get "answers/new"
   get "categories/index"
   root "pages#home"
@@ -10,8 +11,8 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   get "/dashboard", to: "users#dashboard"
 
-  resources :users
-  resources :categories do
+  resources :users, :categories
+  resources :lessons do
     resources :answers
   end
   namespace :admin do
