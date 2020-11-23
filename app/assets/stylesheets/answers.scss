@@ -13,9 +13,11 @@
   }
 
   .answer {
-    text-align: center;
+    width: 18em;
+    margin: 0 auto;
 
     #annotation {
+      text-align: center;
       margin-top: 20px;
     }
 
@@ -36,15 +38,16 @@
       .select-btn {
         margin-top: 20px;
 
-        label {
+        input {
           text-align: left;
           @include btn;
           width: 100%;
           background-color: white;
           color: darkslategray;
+          font-weight: bold;
         }
 
-        label:hover {
+        input:hover {
           @include btn-hover();
           color: darkslategray;
         }
