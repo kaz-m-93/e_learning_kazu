@@ -12,7 +12,7 @@ class AnswersController < ApplicationController
         redirect_to categories_url
       else
         flash[:info] = "the lesson has been completed!"
-        @lesson.update_attribute(:result, @lesson.answers.size) if @lesson.correct_answers.size > 0
+        @lesson.update_attribute(:result, @lesson.correct_answers.size)
         redirect_to lesson_url(@lesson)
       end
     end
