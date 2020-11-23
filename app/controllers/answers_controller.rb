@@ -12,7 +12,7 @@ class AnswersController < ApplicationController
         redirect_to categories_url
       else
         flash[:info] = "the lesson has been completed!"
-        redirect_to root_url #temporary url instead of show result
+        redirect_to lesson_url(@lesson)
       end
     end
   end
