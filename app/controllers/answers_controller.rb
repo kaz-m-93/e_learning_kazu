@@ -3,11 +3,12 @@ class AnswersController < ApplicationController
 
   def new
     @lesson = Lesson.find(params[:lesson_id])
+    @lesson.update_attribute(:result, @lesson.answers.size) if @lesson.answers.size > 0
 
     if @lesson.next_word
       @answer = @lesson.answers.build
     else
-      if @lesson.words.size == 0
+      if @lesson.category.words.size == 0
         flash[:info] = "sorry, there is no words"
         redirect_to categories_url
       else
