@@ -9,4 +9,8 @@ class Lesson < ApplicationRecord
   def next_word
     (category.words - words).first
   end
+
+  def correct_answers
+    answers.select { |answer| answer.choice.is_correct == true }
+  end
 end
