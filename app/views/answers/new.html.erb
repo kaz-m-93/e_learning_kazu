@@ -3,21 +3,20 @@
     <div class="container clearfix">
         <h5 class="count"><%= @lesson.words.size + 1 %> / <%= @lesson.category.words.size %> <small>words</small></h5>
         <div class="answer">
-            <%= form_for([@lesson, @answer]) do |f| %>
-                <%= render 'layouts/error', object: @answer %>
-                <h2 class="word"><span><%= @lesson.next_word.content %></span></h2>
-                <%= f.hidden_field :word_id, value: @lesson.next_word.id %>
-                <small id="annotation" class="form-text text-muted">please check your answer.</small>
-                <div class="content">
-                    <% @lesson.next_word.choices.each do |choice| %>
+            <%= render 'layouts/error', object: @answer %>
+            <h2 class="word"><span><%= @lesson.next_word.content %></span></h2>
+            <small id="annotation" class="form-text text-muted">please check your answer.</small>
+            <div class="content">
+                <% @lesson.next_word.choices.each do |choice| %>
+                    <%= form_for([@lesson, @answer]) do |f| %>
+                        <%= f.hidden_field :word_id, value: @lesson.next_word.id %>
+                        <%= f.hidden_field :choice_id, value: choice.id %>
                         <div class="select-btn">
-                            <%= f.radio_button :choice_id, choice.id %>
-                            <label for="answer_choice_id_<%= choice.id %>"><h3><%= choice.content %></h3></label>
+                            <%= f.submit choice.content %>
                         </div>
                     <% end %>
-                    <div class="answer-btn"><span><%= f.submit "answer" %></span></div>
-                </div>
-            <% end %>
+                <% end %>
+            </div>
         </div>
     </div>
 </div>

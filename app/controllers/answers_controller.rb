@@ -7,8 +7,13 @@ class AnswersController < ApplicationController
     if @lesson.next_word
       @answer = @lesson.answers.build
     else
-      flash[:info] = "sorry, there is no words"
-      redirect_to root_url #temporary url instead of show result
+      if @lesson.words.size == 0
+        flash[:info] = "sorry, there is no words"
+        redirect_to categories_url
+      else
+        flash[:info] = "the lesson has been completed!"
+        redirect_to root_url #temporary url instead of show result
+      end
     end
   end
 
@@ -17,14 +22,7 @@ class AnswersController < ApplicationController
     @answer = @lesson.answers.build(answer_paramas)
 
     if @answer.save
-      if @lesson.next_word.nil?
-        @lesson.update_attribute(:result, 2)
-        flash[:info] = "the lesson has been completed!"
-        redirect_to root_url #temporary url instead of show result
-      else
-        @lesson.update_attribute(:result, 1) if @lesson.result == 0
-        redirect_to new_lesson_answer_url(@lesson)
-      end
+      redirect_to new_lesson_answer_url(@lesson)
     else
       render "new"
     end
