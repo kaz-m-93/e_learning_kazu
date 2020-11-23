@@ -1,3 +1,36 @@
-// Place all the styles related to the lessons controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap";
+@import "shared.scss";
+
+.lesson-wrapper {
+  .count {
+    text-align: right;
+    margin-right: 20px;
+    color: darkgreen;
+    float: right;
+
+    small {
+      color: black;
+    }
+  }
+
+  .words {
+    margin: 0 auto;
+    margin-top: 30px;
+    width: 70%;
+    background-color: floralwhite;
+    max-height: 60vh;
+    overflow-y: scroll;
+
+    .correct {
+      color: darkgreen;
+      padding: 0 auto;
+      font-weight: bold;
+    }
+
+    .incorrect {
+      color: red;
+      font-weight: bold;
+      font-size: large;
+    }
+  }
+}

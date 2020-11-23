@@ -1,0 +1,36 @@
+<% provide(:title, "result") %>
+<div class="lesson-wrapper">
+    <div class="container clearfix">
+        <%= link_to "←categories", categories_url, class: "back" %>
+        <h5 class="count">1 / 2 <small>words are correct</small></h5>
+        <div class="words">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Word</th>
+                        <th scope="col">your Answer</th>
+                        <th scope="col">Correct Answer</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>test1</td>
+                        <td>b</td>
+                        <td>c</td>
+                        <td class="incorrect">×</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>test2</td>
+                        <td>b</td>
+                        <td>b</td>
+                        <td class="correct">○</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

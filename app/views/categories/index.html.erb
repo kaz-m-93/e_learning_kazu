@@ -13,14 +13,16 @@
                     <div class="card">
                         <h5 class="card-header"><%= category.title %></h5>
                         <div class="card-body">
-                        <p class="card-text"><%= category.description %></p>
-                        <p><small>you can learn <%= category.words.size %> words</small></p>
-                        <div class="start-btn right">
-                            <% lesson = category.get_user_lesson(login_user) %>
-                            <% if lesson.nil? %>
-                                <%= link_to "start", lessons_url(category_id: category.id), method: :post %>
-                            <% end %>
-                        </div>
+                            <p class="card-text"><%= category.description %></p>
+                            <p><small>you can learn <%= category.words.size %> words</small></p>
+                            <div class="start-btn right">
+                                <% lesson = category.get_user_lesson(login_user) %>
+                                <% if lesson.nil? %>
+                                    <%= link_to "start", lessons_url(category_id: category.id), method: :post %>
+                                <% else %>
+                                    <%= link_to "result", lesson_url(lesson) %>
+                                <% end %>
+                            </div>
                         </div>
                     </div>
                 </div>
