@@ -3,7 +3,6 @@ class AnswersController < ApplicationController
 
   def new
     @lesson = Lesson.find(params[:lesson_id])
-    @lesson.update_attribute(:result, @lesson.answers.size) if @lesson.answers.size > 0
 
     if @lesson.next_word
       @answer = @lesson.answers.build
@@ -13,6 +12,7 @@ class AnswersController < ApplicationController
         redirect_to categories_url
       else
         flash[:info] = "the lesson has been completed!"
+        @lesson.update_attribute(:result, @lesson.answers.size) if @lesson.correct_answers.size > 0
         redirect_to lesson_url(@lesson)
       end
     end

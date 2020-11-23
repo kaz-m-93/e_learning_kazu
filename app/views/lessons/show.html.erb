@@ -2,7 +2,7 @@
 <div class="lesson-wrapper">
     <div class="container clearfix">
         <%= link_to "←categories", categories_url, class: "back" %>
-        <h5 class="count"><%= "#{@lesson.correct_answers.size} / #{@lesson.answers.size} " %><small>words are correct</small></h5>
+        <h5 class="count"><%= "#{@lesson.result} / #{@lesson.answers.size} " %><small>words are correct</small></h5>
         <div class="words">
             <table class="table">
                 <thead>

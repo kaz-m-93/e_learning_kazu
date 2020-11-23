@@ -17,10 +17,8 @@
                             <p><small>you can learn <%= category.words.size %> words</small></p>
                             <div class="start-btn right">
                                 <% lesson = category.get_user_lesson(login_user) %>
-                                <% if lesson.nil? %>
+                                <% if lesson.nil? || lesson.result.nil? %>
                                     <%= link_to "start", lessons_url(category_id: category.id), method: :post %>
-                                <% elsif category.words.size > lesson.answers.size %>
-                                    <%= link_to "continue", new_lesson_answer_url(lesson) %>
                                 <% else %>
                                     <%= link_to "result", lesson_url(lesson) %>
                                 <% end %>
