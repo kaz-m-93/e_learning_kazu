@@ -60,7 +60,8 @@
     }
   }
 
-  .user-btn {
+  .user-btn,
+  .follow-btn {
     a,
     span {
       background-color: darkslategrey;
@@ -74,6 +75,43 @@
 
     input {
       @include input;
+    }
+  }
+
+  .user-list {
+    margin: 0 auto;
+    width: 90%;
+    padding: 0 10%;
+
+    .user {
+      width: 45%;
+      height: 70px;
+      margin-right: 5%;
+      margin-top: 20px;
+      background-color: ghostwhite;
+      border-radius: 5px;
+      float: left;
+      display: table;
+      
+      .picture {
+        width: 60px;
+
+        .user-picture {
+          margin: 0 10px;
+          height: 45px;
+          width: 45px;
+        }
+      }
+
+      .follow-btn {
+        float: right;
+        margin-right: 10px;
+      }
+
+      img, span, div {
+        display: table-cell;
+        vertical-align: middle;
+      }
     }
   }
 }
