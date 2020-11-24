@@ -2,7 +2,7 @@
 <div class="lesson-wrapper">
     <div class="container clearfix">
         <%= link_to "←categories", categories_url, class: "back" %>
-        <h5 class="count">1 / 2 <small>words are correct</small></h5>
+        <h5 class="count"><%= "#{@lesson.result} / #{@lesson.answers.size} " %><small>words are correct</small></h5>
         <div class="words">
             <table class="table">
                 <thead>
@@ -15,20 +15,21 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>test1</td>
-                        <td>b</td>
-                        <td>c</td>
-                        <td class="incorrect">×</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>test2</td>
-                        <td>b</td>
-                        <td>b</td>
-                        <td class="correct">○</td>
-                    </tr>
+                    <% index = 1 %>
+                    <% @lesson.answers.each do |answer| %>
+                        <tr>
+                            <th scope="row"><%= index %></th>
+                            <% index += 1 %>
+                            <td><%= answer.word.content %></td>
+                            <td><%= answer.choice.content %></td>
+                            <td><%= answer.correct_choice.content %></td>
+                            <% if answer.choice.is_correct %>
+                                <td class="correct">○</td>
+                            <% else %>
+                                <td class="incorrect">×</td>
+                            <% end %>
+                        </tr>
+                    <% end %>
                 </tbody>
             </table>
         </div>

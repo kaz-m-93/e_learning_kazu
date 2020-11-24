@@ -7,11 +7,12 @@ class AnswersController < ApplicationController
     if @lesson.next_word
       @answer = @lesson.answers.build
     else
-      if @lesson.words.size == 0
+      if @lesson.category.words.size == 0
         flash[:info] = "sorry, there is no words"
         redirect_to categories_url
       else
         flash[:info] = "the lesson has been completed!"
+        @lesson.update_attribute(:result, @lesson.correct_answers.size)
         redirect_to lesson_url(@lesson)
       end
     end

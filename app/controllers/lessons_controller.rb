@@ -1,4 +1,6 @@
 class LessonsController < ApplicationController
+  before_action :check_logged_in
+  
   def show
     @lesson = Lesson.find(params[:id])
   end
