@@ -7,7 +7,7 @@
                     <div class="picture">
                         <%= image_tag get_userimage(user), class: "user-picture" %>
                     </div>
-                    <span><%= user.name.blank? ? "noname" : user.name %></span>
+                    <span><%= link_to user.name.blank? ? "noname" : user.name, user_url(user) %></span>
                     <div>
                         <div class="follow-btn inline"><span>follow</span></div>
                     </div>
