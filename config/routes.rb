@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get 'lessons/create'
+  get 'relationships/create'
+  get "lessons/create"
   get "answers/new"
   get "categories/index"
   root "pages#home"
@@ -11,7 +12,10 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   get "/dashboard", to: "users#dashboard"
 
-  resources :users, :categories
+  resources :categories
+  resources :users do
+    resources :relationships
+  end
   resources :lessons do
     resources :answers
   end
