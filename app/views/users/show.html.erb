@@ -22,7 +22,7 @@
                 <% if login_user? %>
                     <div class="user-btn"><%= link_to "settings", edit_user_url(@user) %></div>
                 <% else %>
-                <div class="user-btn"><%= link_to "follow", '#' %></div>
+                    <%= render 'follow', object: @user %>
                 <% end %>
             </div>
         </div>

@@ -1,0 +1,6 @@
+<% if login_user.following.include?(object) %>
+    <% relationship = login_user.get_following_relationship(object) %>
+    <div class="unfollow-btn inline"><%= link_to "unfollow", user_relationship_url(object, relationship), method: :delete %></div>
+<% else %>
+    <div class="follow-btn inline"><%= link_to "follow", user_relationships_url(object), method: :post %></div>
+<% end %>
