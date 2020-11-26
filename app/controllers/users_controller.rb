@@ -22,6 +22,7 @@ class UsersController < ApplicationController
 
   def dashboard
     @user = login_user
+    @activities = Activity.where(user_id: @user.following.pluck(:id) << @user.id).order(created_at: :desc)
   end
 
   def show

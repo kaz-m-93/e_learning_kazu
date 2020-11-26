@@ -13,6 +13,7 @@ class AnswersController < ApplicationController
       else
         flash[:info] = "the lesson has been completed!"
         @lesson.update_attribute(:result, @lesson.correct_answers.size)
+        @lesson.create_activity(user: @lesson.user)
         redirect_to lesson_url(@lesson)
       end
     end

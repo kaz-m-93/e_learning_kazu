@@ -1,7 +1,7 @@
 class RelationshipsController < ApplicationController
   def create
-    Relationship.create(follower_id: params[:user_id], followed_id: login_user.id)
-    # debugger
+    @relationship = Relationship.create(follower_id: params[:user_id], followed_id: login_user.id)
+    @relationship.create_activity(user: login_user)
     redirect_back(fallback_location: root_path)
   end
 

@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :following, through: :active_relationships, source: :follower
   has_many :passive_relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
   has_many :followers, through: :passive_relationships, source: :followed
+  has_many :activities, dependent: :destroy
 
   VALID_EMAIL = /\A[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\Z/
   validates :email, presence: true,
@@ -17,5 +18,9 @@ class User < ApplicationRecord
 
   def get_following_relationship(user)
     active_relationships.find_by(follower_id: user.id)
+  end
+
+  def get_activities
+    activities.order(created_at: :desc)
   end
 end
