@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get 'relationships/create'
-  get "lessons/create"
-  get "answers/new"
-  get "categories/index"
   root "pages#home"
   get "/about", to: "pages#about"
   get "/signup", to: "users#new"
@@ -13,6 +9,7 @@ Rails.application.routes.draw do
   get "/dashboard", to: "users#dashboard"
 
   resources :categories
+  resources :words
   resources :users do
     resources :relationships
   end

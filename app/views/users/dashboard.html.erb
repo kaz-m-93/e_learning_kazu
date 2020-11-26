@@ -8,7 +8,9 @@
                     <h2 class="name"><%= login_user.name || "no name" %></h2>
                     <p class="email"><%= login_user.email %></p>
                 </div>
-                <p>xx words learned</p>
+                <p class="user-btn">
+                    <%= link_to "#{Answer.joins(:lesson).merge(Lesson.where(user_id: login_user.id)).size} words learned", words_url%>
+                </p>
             </div>
         </div>
         <div class="right-side">
