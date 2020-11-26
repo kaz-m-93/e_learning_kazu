@@ -26,7 +26,7 @@
                                 <%= "#{name} followed " %>
                                 <span style="background-color: darkcyan;"><%= activity.action.follower.name.blank? ? "noname" : activity.action.follower.name %></span>
                             <% end %>
-                            <small class="text-muted"><%= activity.created_at.strftime("%-y-%-m-%-d") %></small>
+                            <small class="text-muted"><%= "#{time_ago_in_words(activity.created_at)} ago" %></small>
                         </div>
                     <% end %>
                 </div>
