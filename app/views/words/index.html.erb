@@ -8,7 +8,7 @@
                     <h2 class="name"><%= @user.name.blank? ? "no name" : @user.name %></h2>
                     <p class="email"><%= @user.email %></p>
                 </div>
-                <p><%= "#{Answer.joins(:lesson).merge(Lesson.where(user_id: login_user.id)).size} words learned" %></p>
+                <p><%= "#{@answers.size} words learned" %></p>
                 <div class="follow-form clearfix">
                     <div class="follow">
                         follow
