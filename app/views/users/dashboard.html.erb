@@ -12,9 +12,23 @@
             </div>
         </div>
         <div class="right-side">
-            <div class="activity">
+            <div class="activities">
                 <h2>activities</h2>
-                <div class="item">
+                <div class="content">
+                    <% @activities.each do |activity| %>
+                    <% name = activity.user == login_user ? "you" : activity.user.name.blank? ? "noname" : @user.name %>
+                        <div class="activity" style="margin-top: 5px;">
+                            <%= link_to image_tag(get_userimage(activity.user), class: "user-picture", style: "height: 25px;"), user_url(activity.user)%>
+                            <% if activity.action_type == "Lesson" %>
+                                <%= "#{name} learned #{activity.action.result} / #{activity.action.category.words.size} in " %>
+                                <span style="background-color: blue;"><%= activity.action.category.title %></span>
+                            <% elsif activity.action_type == "Relationship" %>
+                                <%= "#{name} followed " %>
+                                <span style="background-color: darkcyan;"><%= activity.action.follower.name.blank? ? "noname" : activity.action.follower.name %></span>
+                            <% end %>
+                            <small class="text-muted"><%= activity.created_at.strftime("%-y-%-m-%-d") %></small>
+                        </div>
+                    <% end %>
                 </div>
             </div>
         </div>

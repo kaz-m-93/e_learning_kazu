@@ -22,6 +22,7 @@ class UsersController < ApplicationController
 
   def dashboard
     @user = login_user
+    @activities = Activity.all.order(created_at: :desc)
   end
 
   def show

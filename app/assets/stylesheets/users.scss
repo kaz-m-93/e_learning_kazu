@@ -38,8 +38,32 @@
     float: right;
     width: 70%;
 
-    .activity {
+    .activities {
       width: 90%;
+      
+      .content {
+        padding: 10px;
+        width: 80%;
+        height: 50vh;
+        background-color: floralwhite;
+        border-radius: 5px;
+        box-shadow: 2px 2px black;
+        overflow-y: scroll;
+
+        .activity {
+          span{
+            @include btn;
+            font-size: small;
+            padding: 0 5px;
+            box-shadow: none;
+            cursor: default;
+          }
+
+          small {
+            font-size: xx-small;
+          }
+        }
+      }
     }
 
     .update-info {
