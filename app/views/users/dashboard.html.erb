@@ -9,7 +9,7 @@
                     <p class="email"><%= login_user.email %></p>
                 </div>
                 <p class="user-btn">
-                    <%= link_to "#{Answer.joins(:lesson).merge(Lesson.where(user_id: login_user.id)).size} words learned", words_url%>
+                    <%= link_to "#{login_user.answers.size} words learned", words_url%>
                 </p>
             </div>
         </div>
