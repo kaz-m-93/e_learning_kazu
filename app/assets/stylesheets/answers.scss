@@ -1,0 +1,84 @@
+@import "bootstrap";
+@import "shared.scss";
+
+.answer-wrapper {
+  .count {
+    text-align: right;
+    margin-right: 20px;
+    color: darkgreen;
+
+    small {
+      color: black;
+    }
+  }
+
+  .answer {
+    width: 18em;
+    margin: 0 auto;
+
+    #annotation {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      padding-top: 20px;
+
+      span {
+        color: darkslategray;
+        border-bottom: 3px solid darkslategray;
+      }
+    }
+
+    .content {
+      width: 18em;
+      margin: 0 auto;
+
+      .select-btn {
+        margin-top: 20px;
+
+        input {
+          text-align: left;
+          @include btn;
+          width: 100%;
+          background-color: white;
+          color: darkslategray;
+          font-weight: bold;
+        }
+
+        input:hover {
+          @include btn-hover();
+          color: darkslategray;
+        }
+
+        input[type="radio"] {
+          display: none;
+        }
+
+        input[type="radio"]:checked + label {
+          color: white;
+          background-color: darkslategray;
+        }
+      }
+
+      .answer-btn {
+        margin-top: 20px;
+        text-align: left;
+
+        span {
+          background-color: darkslategray;
+          @include btn;
+
+          input {
+            @include input;
+          }
+        }
+
+        span:hover {
+          @include btn-hover();
+        }
+      }
+    }
+  }
+}

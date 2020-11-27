@@ -1,0 +1,65 @@
+<% provide(:title, "words") %>
+<div class="user-wrapper">
+    <div class="container clearfix">
+        <div class="left-side">
+            <div class="user" style="max-width: 18rem;">
+                <%= image_tag get_userimage(@user), class: "user-picture" %>
+                <div class="info">
+                    <h2 class="name"><%= @user.name.blank? ? "no name" : @user.name %></h2>
+                    <p class="email"><%= @user.email %></p>
+                </div>
+                <p><%= "#{@answers.size} words learned" %></p>
+                <div class="follow-form clearfix">
+                    <div class="follow">
+                        follow
+                        <p>xx</p>
+                    </div>
+                    <div class="follower">
+                        follower
+                        <p>xx</p>
+                    </div>
+                </div>
+                <div class="user-btn">
+                    <%= link_to "settings", edit_user_url(@user) %>
+                </div>
+            </div>
+        </div>
+        <div class="right-side">
+            <div class="activities">
+                <h2>words</h2>
+                <div class="content">
+                    <div class="words">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Word</th>
+                                    <th scope="col">your Answer</th>
+                                    <th scope="col">Correct Answer</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% index = 1 %>
+                                <% @answers.each do |answer| %>
+                                    <tr>
+                                        <th scope="row"><%= index %></th>
+                                        <% index += 1 %>
+                                        <td><%= answer.word.content %></td>
+                                        <td><%= answer.choice.content %></td>
+                                        <td><%= answer.correct_choice.content %></td>
+                                        <% if answer.choice.is_correct %>
+                                            <td class="correct">○</td>
+                                        <% else %>
+                                            <td class="incorrect">×</td>
+                                        <% end %>
+                                    </tr>
+                                <% end %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+<% provide(:title, "result") %>
+<div class="lesson-wrapper">
+    <div class="container clearfix">
+        <%= link_to "←categories", categories_url, class: "back" %>
+        <h5 class="count"><%= "#{@lesson.result} / #{@lesson.answers.size} " %><small>words are correct</small></h5>
+        <div class="words">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Word</th>
+                        <th scope="col">your Answer</th>
+                        <th scope="col">Correct Answer</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% index = 1 %>
+                    <% @lesson.answers.each do |answer| %>
+                        <tr>
+                            <th scope="row"><%= index %></th>
+                            <% index += 1 %>
+                            <td><%= answer.word.content %></td>
+                            <td><%= answer.choice.content %></td>
+                            <td><%= answer.correct_choice.content %></td>
+                            <% if answer.choice.is_correct %>
+                                <td class="correct">○</td>
+                            <% else %>
+                                <td class="incorrect">×</td>
+                            <% end %>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

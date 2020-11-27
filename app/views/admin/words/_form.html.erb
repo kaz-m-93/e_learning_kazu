@@ -1,0 +1,27 @@
+<%= form_for([:admin, :category, @word]) do |f| %>
+<div class="update-info">
+    <div class="content">
+        <%= render 'layouts/error', object: @word %>
+        <div class="form-group word">
+            <label for="inputWord">Word</label>
+            <div><%= f.text_field :content, class: "form-control" %></div>
+        </div>
+        <div class="choice">
+            <p>Choice</p>
+            <small class="form-group form-text text-muted">please input 3 words and check the correct answer.</small>
+            <%= f.fields_for :choices do |s| %>
+                <div class="form-group choice-form">
+                    <%= s.text_field :content, class: "form-control choice-text" %>
+                    <!-- ↓ for simple implements, use check box instead of radio button -->
+                    <div class="choice-radio"><%= s.check_box :is_correct %></div>
+                </div>
+            <% end %>
+        </div>
+        <% if object == "add" %>
+            <div class="add-btn"><span><%= f.submit "add" %></span></div>
+        <% else %>
+            <div class="edit-btn"><span><%= f.submit "edit" %></span></div>
+        <% end %>
+    </div>
+</div>
+<% end %>

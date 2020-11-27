@@ -1,0 +1,35 @@
+<% provide(:title, "[admin] categories") %>
+<div class="admin-category-wrapper">
+    <div class="container clearfix">
+        <div class="add-btn add-btn-position right font-smaller">
+            <%= link_to "add category", new_admin_category_url, class: "add" %>
+        </div>
+        <div class="categories">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Description</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% index = 1 %>
+                    <% @categories.each do |category| %>
+                        <tr>
+                            <th scope="row"><%= index %></th>
+                            <% index += 1 %>
+                            <td><%= link_to category.title, admin_category_words_url(category) %></td>
+                            <td><%= category.description %></td>
+                            <td class="category-btn font-smaller">
+                                <div class="edit-btn inline"><%= link_to "edit", edit_admin_category_url(category), class: "edit" %></div>
+                                <div class="del-btn inline"><%= link_to "del", admin_category_url(category), method: :delete, class: "del" %></div>
+                            </td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

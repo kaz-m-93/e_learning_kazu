@@ -1,0 +1,89 @@
+@import "bootstrap";
+@import "shared.scss";
+
+.back {
+  margin-left: 20px;
+}
+
+.admin-category-wrapper {
+  .add-btn-position {
+    width: 70%;
+    margin: 0 auto 10px auto;
+  }
+
+  .add-btn {
+    a,
+    span {
+      background-color: firebrick;
+      @include btn;
+
+      input {
+        @include input;
+      }
+    }
+
+    a:hover,
+    span:hover {
+      @include btn-hover();
+    }
+  }
+
+  .edit-btn {
+    a,
+    span {
+      background-color: green;
+      @include btn;
+    }
+
+    a:hover,
+    span:hover {
+      @include btn-hover();
+    }
+
+    input {
+      @include input;
+    }
+  }
+
+  .del-btn {
+    a {
+      background-color: blue;
+      @include btn;
+    }
+    a:hover,
+    span:hover {
+      @include btn-hover();
+    }
+  }
+
+  .categories,
+  .words {
+    margin: 0 auto;
+    width: 70%;
+    background-color: floralwhite;
+    max-height: 60vh;
+    overflow-y: scroll;
+
+    .category-btn,
+    .word-btn {
+      width: 20%;
+    }
+  }
+
+  .update-info {
+    min-height: 65vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .content {
+      padding: 40px;
+      width: 60%;
+      background-color: floralwhite;
+
+      .description {
+        min-height: 7em;
+      }
+    }
+  }
+}

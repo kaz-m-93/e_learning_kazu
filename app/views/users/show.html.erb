@@ -1,0 +1,50 @@
+<% provide(:title, "profile") %>
+<div class="user-wrapper">
+    <div class="container clearfix">
+        <div class="left-side">
+            <div class="user" style="max-width: 18rem;">
+                <%= image_tag get_userimage(@user), class: "user-picture" %>
+                <div class="info">
+                    <h2 class="name"><%= @user.name.blank? ? "no name" : @user.name %></h2>
+                    <p class="email"><%= @user.email %></p>
+                </div>
+                <p><%= "#{@user.answers.size} words learned" %></p>
+                <div class="follow-form clearfix">
+                    <div class="follow">
+                        follow
+                        <p>xx</p>
+                    </div>
+                    <div class="follower">
+                        follower
+                        <p>xx</p>
+                    </div>
+                </div>
+                <% if login_user? %>
+                    <div class="user-btn"><%= link_to "settings", edit_user_url(@user) %></div>
+                <% else %>
+                    <%= render 'follow', object: @user %>
+                <% end %>
+            </div>
+        </div>
+        <div class="right-side">
+            <div class="activities">
+                <h2><%= "#{@user.name}'s " unless @user.name.blank? %>activities</h2>
+                <div class="content">
+                    <% name = login_user? ? "you" : @user.name.blank? ? "noname" : @user.name %>
+                    <% @user.get_activities.each do |activity| %>
+                        <div class="activity">
+                            <% if activity.action_type == "Lesson" %>
+                                <%= "#{name} learned #{activity.action.result} / #{activity.action.category.words.size} in " %>
+                                <span style="background-color: blue;"><%= activity.action.category.title %></span>
+                            <% elsif activity.action_type == "Relationship" %>
+                                <%= "#{name} followed " %>
+                                <span style="background-color: darkcyan;"><%= activity.action.follower.name.blank? ? "noname" : activity.action.follower.name %></span>
+                            <% end %>
+                            <small class="text-muted"><%= "#{time_ago_in_words(activity.created_at)} ago" %></small>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

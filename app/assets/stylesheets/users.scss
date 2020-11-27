@@ -1,14 +1,157 @@
 @import "bootstrap";
+@import "shared.scss";
 
-.signup-form {
-    width: 400px;
-    margin: auto;
+.user-wrapper {
+  .left-side {
+    float: left;
+    width: 30%;
 
-    h1 {
-        text-align: center;
+    .user {
+      text-align: center;
+      margin: auto;
+
+      img {
+        height: 100px;
+      }
+
+      .email {
+        line-height: 0.3;
+      }
+
+      .follow-form {
+        width: 130px;
+        margin: 0 auto;
+
+        .follow,
+        .follower {
+          width: 65px;
+        }
+
+        div {
+          float: left;
+        }
+      }
+    }
+  }
+
+  .right-side {
+    float: right;
+    width: 70%;
+
+    .activities {
+      width: 90%;
+      
+      .content {
+        padding: 10px;
+        width: 80%;
+        height: 50vh;
+        background-color: floralwhite;
+        border-radius: 5px;
+        box-shadow: 2px 2px black;
+        overflow-y: scroll;
+
+        .activity {
+          span{
+            @include btn;
+            font-size: small;
+            padding: 0 5px;
+            box-shadow: none;
+            cursor: default;
+          }
+
+          small {
+            font-size: xx-small;
+          }
+        }
+      }
     }
 
-    .btn {
-        margin-top: 10px;
+    .update-info {
+      width: 70%;
     }
+
+    h2 {
+      text-decoration: underline;
+    }
+  }
+
+  .update-info {
+    width: 50%;
+    margin: 0 auto;
+
+    .form-control-file {
+      font-size: 14px;
+    }
+  }
+
+  .user-btn,
+  .follow-btn {
+    a,
+    span {
+      background-color: darkslategrey;
+    }
+  }
+
+  .unfollow-btn {
+    a,
+    span {
+      background-color: darkgray;
+    }
+  }
+
+  .user-btn,
+  .follow-btn,
+  .unfollow-btn {
+    a,
+    span {
+      @include btn;
+    }
+
+    a:hover,
+    span:hover {
+      @include btn-hover();
+    }
+
+    input {
+      @include input;
+    }
+  }
+
+  .user-list {
+    margin: 0 auto;
+    width: 90%;
+    padding: 0 10%;
+
+    .user {
+      width: 45%;
+      height: 70px;
+      margin-right: 5%;
+      margin-top: 20px;
+      background-color: ghostwhite;
+      border-radius: 5px;
+      float: left;
+      display: table;
+      
+      .picture {
+        width: 60px;
+
+        .user-picture {
+          margin: 0 10px;
+          height: 45px;
+          width: 45px;
+        }
+      }
+
+      .follow-btn,
+      .unfollow-btn {
+        float: right;
+        margin-right: 10px;
+      }
+
+      img, span, div {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+  }
 }

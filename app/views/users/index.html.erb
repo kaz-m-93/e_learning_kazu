@@ -1,0 +1,21 @@
+<% provide(:title, "users") %>
+<div class="user-wrapper">
+    <div class="container clearfix">
+        <div class="user-list">
+            <% @users.each do |user| %>
+                <% unless user.id == login_user.id %>
+                    <div class="user">
+                        <div class="picture">
+                            <%= image_tag get_userimage(user), class: "user-picture" %>
+                        </div>
+                        <span><%= link_to user.name.blank? ? "noname" : user.name, user_url(user) %></span>
+                        <div>
+                            <%= render 'follow', object: user %>
+                        </div>
+                    </div>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
+</div>
+

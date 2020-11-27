@@ -1,0 +1,36 @@
+@import "bootstrap";
+@import "shared.scss";
+
+.lesson-wrapper {
+  .count {
+    text-align: right;
+    margin-right: 20px;
+    color: darkgreen;
+    float: right;
+
+    small {
+      color: black;
+    }
+  }
+
+  .words {
+    margin: 0 auto;
+    margin-top: 30px;
+    width: 70%;
+    background-color: floralwhite;
+    max-height: 60vh;
+    overflow-y: scroll;
+
+    .correct {
+      color: darkgreen;
+      padding: 0 auto;
+      font-weight: bold;
+    }
+
+    .incorrect {
+      color: red;
+      font-weight: bold;
+      font-size: large;
+    }
+  }
+}
