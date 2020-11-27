@@ -1,0 +1,5 @@
+<% if object.is_admin %>
+    <div class="unfollow-btn inline"><%= link_to "Remove as Admin", admin_user_url(object), method: :delete %></div>
+<% else %>
+    <div class="follow-btn inline"><%= link_to "Add as Admin", admin_users_url(id: object.id), method: :post %></div>
+<% end %>
