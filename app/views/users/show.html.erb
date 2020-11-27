@@ -8,7 +8,7 @@
                     <h2 class="name"><%= @user.name.blank? ? "no name" : @user.name %></h2>
                     <p class="email"><%= @user.email %></p>
                 </div>
-                <p>xx words learned</p>
+                <p><%= "#{@user.answers.size} words learned" %></p>
                 <div class="follow-form clearfix">
                     <div class="follow">
                         follow
