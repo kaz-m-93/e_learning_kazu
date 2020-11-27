@@ -19,3 +19,6 @@ production:
   database: e_learning_kazu_production
   username: e_learning_kazu
   password: <%= ENV['E_LEARNING_KAZU_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
