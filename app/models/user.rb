@@ -24,4 +24,8 @@ class User < ApplicationRecord
   def get_activities
     activities.order(created_at: :desc)
   end
+
+  def learned_lessons
+    lessons.where.not(result: nil)
+  end
 end

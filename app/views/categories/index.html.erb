@@ -3,29 +3,32 @@
     <div class="container clearfix">
         <div class="lessons">
             <nav class="nav justify-content-end">
-                <div class="nav-link active"><%= link_to "all", categories_url %></div>
-                <div class="nav-link"><%= link_to "learned", "#" %></div>
-                <div class="nav-link"><%= link_to "not learned", "#" %></div>
+                <% activate = params[:filter_val] %>
+                <div class="nav-link <%= "active" if activate.nil? %>"><%= link_to "all", categories_url %></div>
+                <div class="nav-link <%= "active" if activate == "1" %>"><%= link_to "learned", categories_url(filter_val: 1) %></div>
+                <div class="nav-link <%= "active" if activate == "2" %>"><%= link_to "not learned", categories_url(filter_val: 2) %></div>
             </nav>
             <div class="lessons-content">
-                <% @categories.each do |category| %>
-                <div class="lessons-category" style="width: 18rem;">
-                    <div class="card">
-                        <h5 class="card-header"><%= category.title %></h5>
-                        <div class="card-body">
-                            <p class="card-text"><%= category.description %></p>
-                            <p><small>you can learn <%= category.words.size %> words</small></p>
-                            <div class="start-btn right">
-                                <% lesson = category.get_user_lesson(login_user) %>
-                                <% if lesson.nil? || lesson.result.nil? %>
-                                    <%= link_to "start", lessons_url(category_id: category.id), method: :post %>
-                                <% else %>
-                                    <%= link_to "result", lesson_url(lesson) %>
-                                <% end %>
+                <% unless @categories.nil? %>
+                    <% @categories.each do |category| %>
+                    <div class="lessons-category" style="width: 18rem;">
+                        <div class="card">
+                            <h5 class="card-header"><%= category.title %></h5>
+                            <div class="card-body">
+                                <p class="card-text"><%= category.description %></p>
+                                <p><small>you can learn <%= category.words.size %> words</small></p>
+                                <div class="start-btn right">
+                                    <% lesson = category.get_user_lesson(login_user) %>
+                                    <% if lesson.nil? || lesson.result.nil? %>
+                                        <%= link_to "start", lessons_url(category_id: category.id), method: :post %>
+                                    <% else %>
+                                        <%= link_to "result", lesson_url(lesson) %>
+                                    <% end %>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                    <% end %>
                 <% end %>
             </div>
         </div>
